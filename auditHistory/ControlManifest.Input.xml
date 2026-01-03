@@ -1,0 +1,36 @@
+<?xml version="1.0.0.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="dmsnAuditTimeline" constructor="DmsnAuditTimelineControl" version="0.0.1" display-name-key="DMSN Audit Timeline" description-key="Interactive timeline that surfaces Dataverse audit events, grouped changes, and user activity." control-type="virtual" >
+ 
+    <external-service-usage enabled="false">
+    </external-service-usage>
+
+  <!-- props bound field -->
+  <property name="recordName" display-name-key="RecordLabelName" description-key="Bound primary record name." of-type="SingleLine.Text" usage="bound" required="true" />
+ 
+
+  <!-- Other props -->
+  <property name="value" display-name-key="Value" description-key="Record (GUID) passed in by the table to scope the audit query." of-type="SingleLine.Text" usage="input" required="true" />
+  <property name="pageSize" display-name-key="PageSize" description-key="Maximum number of audit entries retrieved per request." of-type="Whole.None" usage="input" required="false" />
+  <property name="showLoadMore" display-name-key="ShowLoadMore" description-key="Shows the Load More button when additional audit rows are available." of-type="TwoOptions" usage="input" required="false" />
+  <property name="includeChangeData" display-name-key="IncludeChangeData" description-key="Includes field-level change details for each audit entry." of-type="TwoOptions" usage="input" required="false" />
+  <property name="height" display-name-key="Height" description-key="Optional fixed control height in pixels." of-type="Whole.None" usage="input" required="false" />
+  
+  <property name="enableSort" display-name-key="EnableSort" description-key="Enables column sorting within the audit grid." of-type="TwoOptions" usage="input" required="false" />
+  <property name="enableColumnSizing" display-name-key="EnableColumnSizing" description-key="Allows users to resize grid columns." of-type="TwoOptions" usage="input" required="false" />
+   
+    <resources>
+      <code path="index.ts" order="1"/>
+      <platform-library name="React" version="16.14.0" />
+      <platform-library name="Fluent" version="9.46.2" />
+      <!-- MORE RESOURCES
+      <css path="css/auditHistory.css" order="1" />
+      <resx path="strings/auditHistory.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    <feature-usage>
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+  </control>
+</manifest>
