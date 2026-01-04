@@ -282,7 +282,11 @@ const columns: TableColumnDefinition<AuditRow>[] = [
   createTableColumn<AuditRow>({
     columnId: 'operation',
     compare: columnComparators.operation,
-    renderHeaderCell: () => <span style={headerCellStyle}>Operation</span>,
+    renderHeaderCell: () => (
+      <TableCellLayout style={cellLayoutStyle}>
+        <span style={headerCellStyle}>Operation</span>
+      </TableCellLayout>
+    ),
     renderCell: (row) => (
       <TableCellLayout style={cellLayoutStyle}>
         <div style={{ ...cellTopStyle, ...bodyTextStyle }}>{row.operation}</div>
@@ -292,7 +296,11 @@ const columns: TableColumnDefinition<AuditRow>[] = [
   createTableColumn<AuditRow>({
     columnId: 'createdOn',
     compare: columnComparators.createdOn,
-    renderHeaderCell: () => <span style={headerCellStyle}>Changed Date</span>,
+    renderHeaderCell: () => (
+      <TableCellLayout style={cellLayoutStyle}>
+        <span style={headerCellStyle}>Changed Date</span>
+      </TableCellLayout>
+    ),
     renderCell: (row) => (
       <TableCellLayout style={cellLayoutStyle}>
         <div style={{ ...cellTopStyle, ...bodyTextStyle }}>{row.createdOn}</div>
@@ -302,7 +310,11 @@ const columns: TableColumnDefinition<AuditRow>[] = [
   createTableColumn<AuditRow>({
     columnId: 'user',
     compare: columnComparators.user,
-    renderHeaderCell: () => <span style={headerCellStyle}>Changed By</span>,
+    renderHeaderCell: () => (
+      <TableCellLayout style={cellLayoutStyle}>
+        <span style={headerCellStyle}>Changed By</span>
+      </TableCellLayout>
+    ),
     renderCell: (row) => (
       <TableCellLayout style={cellLayoutStyle}>
         <div style={{ ...cellTopStyle, ...bodyTextStyle }}>{row.user}</div>
@@ -312,7 +324,11 @@ const columns: TableColumnDefinition<AuditRow>[] = [
   createTableColumn<AuditRow>({
     columnId: 'fieldName',
     compare: columnComparators.fieldName,
-    renderHeaderCell: () => <span style={headerCellStyle}>Field</span>,
+    renderHeaderCell: () => (
+      <TableCellLayout style={cellLayoutStyle}>
+        <span style={headerCellStyle}>Field</span>
+      </TableCellLayout>
+    ),
     renderCell: (row) => (
       <TableCellLayout style={cellLayoutStyle}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
@@ -328,7 +344,11 @@ const columns: TableColumnDefinition<AuditRow>[] = [
   createTableColumn<AuditRow>({
     columnId: 'oldValue',
     compare: columnComparators.oldValue,
-    renderHeaderCell: () => <span style={headerCellStyle}>Old Value</span>,
+    renderHeaderCell: () => (
+      <TableCellLayout style={cellLayoutStyle}>
+        <span style={headerCellStyle}>Old Value</span>
+      </TableCellLayout>
+    ),
     renderCell: (row) => (
       <TableCellLayout style={cellLayoutStyle}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
@@ -362,7 +382,11 @@ const columns: TableColumnDefinition<AuditRow>[] = [
   createTableColumn<AuditRow>({
     columnId: 'newValue',
     compare: columnComparators.newValue,
-    renderHeaderCell: () => <span style={headerCellStyle}>New Value</span>,
+    renderHeaderCell: () => (
+      <TableCellLayout style={cellLayoutStyle}>
+        <span style={headerCellStyle}>New Value</span>
+      </TableCellLayout>
+    ),
     renderCell: (row) => (
       <TableCellLayout style={cellLayoutStyle}>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
@@ -696,13 +720,7 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
           <DataGridBody>
             {({ item, rowId }: { item: AuditRow; rowId: TableRowId }) => (
               <DataGridRow key={rowId}>
-                {({ renderCell }: { renderCell: (row: AuditRow) => React.ReactNode }) => (
-                  <DataGridCell style={{ alignItems: 'flex-start' }}>
-                    <div style={{ width: '100%', ...bodyTextStyle, display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                      {renderCell(item)}
-                    </div>
-                  </DataGridCell>
-                )}
+                {({ renderCell }: { renderCell: (row: AuditRow) => React.ReactNode }) => <DataGridCell>{renderCell(item)}</DataGridCell>}
               </DataGridRow>
             )}
           </DataGridBody>
