@@ -17,8 +17,12 @@ The **DMSN Audit Timeline** PCF control renders Dataverse audit logs as an inter
 
 ## Installation
 
-1. Import the solution containing the PCF control into your D365 environment.
-2. Configure the control on the desired entity forms.
+1. Import the solution into your D365 environment.
+   - Download the managed solution here:
+     - [DMSNAuditHistorySolutions](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/DMSNAuditHistorySolutions/DMSNAuditHistorySolutions.zip)
+       ![7](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/7.png)
+
+3. Configure the control on the desired entity forms.
 
 ## How to Use
 
@@ -39,9 +43,9 @@ The **DMSN Audit Timeline** PCF control renders Dataverse audit logs as an inter
 
 ![4](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/4.png)
 
-![5](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/6.png)
+![8](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/8.png)
 
-![6](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/5.png)
+![9](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/9.png)
 
 ## Configuration Inputs
 
