@@ -1,0 +1,232 @@
+/* DMSN Audit Timeline - External Styles */
+/* mobile breakpoint: 768px */
+
+/*cell Styles */
+.cell-top {
+  height: 100%;
+  align-self: flex-start;
+}
+
+.cell-layout {
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/*content font styles */
+.body-text {
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.change-line {
+  font-size: 14px;
+  line-height: 30px;
+  min-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*filter bar styles */
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.date-with-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.date-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 0 1 220px;
+  min-width: 220px;
+}
+
+.date-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 6px 10px;
+}
+
+.refresh-section-base {
+  margin-left: auto;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 280px;
+  flex: 1 1 320px;
+}
+
+.filter-label {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: rgba(15, 23, 42, 0.65);
+}
+
+.filter-button {
+  width: 100%;
+  justify-content: space-between;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: #fff;
+}
+
+.filter-helper-text {
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.55);
+}
+
+.refresh-button {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+}
+
+/*grid header styles */
+.header-cell {
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.grid-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  padding: 4px 12px 16px;
+}
+
+.grid-wrapper table {
+  align-items: flex-start;
+}
+
+.grid-wrapper tbody tr,
+.grid-wrapper thead tr {
+  align-items: flex-start;
+}
+
+/*mobile card styles */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+
+.mobile-card {
+  border-radius: 16px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobile-change {
+  border-radius: 10px;
+  background: rgba(99, 102, 241, 0.06);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/*empty state */
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: rgba(15, 23, 42, 0.6);
+  font-weight: 600;
+}
+
+/*footer bar */
+.footer-bar {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 13px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/*responsive classes for mobile */
+.filter-bar-mobile {
+  position: static;
+}
+
+.filter-row-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.filter-section-mobile {
+  min-width: 100%;
+  flex: 1 1 100%;
+}
+
+.date-section-mobile {
+  min-width: 100%;
+  flex: 1 1 100%;
+}
+
+.reset-section-mobile {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.refresh-section-mobile {
+  width: 100%;
+  justify-content: flex-start;
+  margin-left: 0;
+}
+
+.refresh-button-mobile {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.data-grid-body {
+  align-items: flex-start;
+}

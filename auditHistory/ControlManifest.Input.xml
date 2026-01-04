@@ -3,7 +3,7 @@
   <control 
     namespace="dmsnAuditTimeline" 
     constructor="DmsnAuditTimelineControl" 
-    version="1.0.1" 
+    version="1.0.2" 
     display-name-key="DMSN Audit Timeline" 
     description-key="Interactive timeline that surfaces Dataverse audit events, grouped changes, and user activity." 
     control-type="virtual" 
@@ -30,8 +30,8 @@
       <code path="index.ts" order="1"/>
       <platform-library name="React" version="16.14.0" />
       <platform-library name="Fluent" version="9.46.2" />
-      <!-- MORE RESOURCES
       <css path="css/auditHistory.css" order="1" />
+      <!-- 
       <resx path="strings/auditHistory.1033.resx" version="1.0.0" />
       -->
     </resources>

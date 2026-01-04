@@ -30,173 +30,6 @@ import type { AuditRow, EntityRef, IAuditHistory } from '../models/audit';
 //mobile breakpoint responsive view
 const MOBILE_BREAKPOINT = 768;
 
-const cellTopStyle: React.CSSProperties = { height: '100%', alignSelf: 'flex-start' };
-const cellLayoutStyle: React.CSSProperties = { alignItems: 'flex-start', justifyContent: 'flex-start', width: '100%' };
-
-// ====== CONTENT FONT SIZE ======
-const bodyTextStyle: React.CSSProperties = {
-  fontSize: 14,
-  lineHeight: '30px',
-};
-
-const changeLineStyle: React.CSSProperties = {
-  ...bodyTextStyle,
-  lineHeight: '30px',
-  minHeight: '20px',
-  whiteSpace: 'nowrap',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
-};
-
-// ====== FILTER BAR STYLE ======
-const filterBarStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 12,
-  padding: '12px 16px',
-  position: 'sticky',
-  top: 0,
-  zIndex: 10,
-  background: '#fff',
-  borderBottom: '1px solid rgba(15,23,42,0.08)',
-};
-
-const filterRowStyle: React.CSSProperties = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: 12,
-  alignItems: 'flex-start',
-};
-
-const filterSectionStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 6,
-  minWidth: 280,
-  flex: '1 1 320px',
-};
-
-const filterLabelStyle: React.CSSProperties = {
-  fontWeight: 600,
-  fontSize: 12,
-  textTransform: 'uppercase',
-  letterSpacing: 0.4,
-  color: 'rgba(15,23,42,0.65)',
-};
-
-const filterButtonStyle: React.CSSProperties = {
-  width: '100%',
-  justifyContent: 'space-between',
-  borderRadius: 10,
-  border: '1px solid rgba(148,163,184,0.6)',
-  background: '#fff',
-};
-
-const filterHelperTextStyle: React.CSSProperties = {
-  fontSize: 12,
-  color: 'rgba(15,23,42,0.55)',
-};
-
-const dateSectionStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 6,
-  minWidth: 200,
-  flex: '1 1 200px',
-};
-
-const dateInputStyle: React.CSSProperties = {
-  background: '#fff',
-  borderRadius: 10,
-  border: '1px solid rgba(148,163,184,0.6)',
-  padding: '6px 10px',
-  width: '100%',
-};
-
-const resetSectionBaseStyle: React.CSSProperties = {
-  display: 'flex',
-  flex: '0 0 auto',
-  alignItems: 'flex-end',
-};
-
-const refreshSectionBaseStyle: React.CSSProperties = {
-  display: 'flex',
-  flex: '0 0 auto',
-  alignItems: 'flex-end',
-};
-
-const refreshButtonStyle: React.CSSProperties = {
-  borderRadius: '50%',
-  width: 42,
-  height: 42,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: 'none',
-  background: 'transparent',
-};
-
-// ====== GRID HEADER STYLE ======
-const headerCellStyle: React.CSSProperties = {
-  fontWeight: 800,
-  fontSize: 15,
-};
-
-const gridWrapperStyle: React.CSSProperties = {
-  width: '100%',
-  overflowX: 'hidden',
-  borderTop: '1px solid rgba(0,0,0,0.06)',
-  background: '#fff',
-  borderRadius: 16,
-  boxShadow: '0 16px 40px rgba(15,23,42,0.08)',
-  padding: '4px 12px 16px',
-};
-
-const cardsContainerStyle: React.CSSProperties = {
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 12,
-  padding: '12px',
-};
-
-const mobileCardStyle: React.CSSProperties = {
-  borderRadius: 16,
-  border: '1px solid rgba(15,23,42,0.08)',
-  background: '#fff',
-  boxShadow: '0 10px 30px rgba(15,23,42,0.08)',
-  padding: 14,
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 8,
-};
-
-const mobileChangeStyle: React.CSSProperties = {
-  borderRadius: 10,
-  background: 'rgba(99,102,241,0.06)',
-  padding: 8,
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 4,
-};
-
-const emptyStateStyle: React.CSSProperties = {
-  padding: 24,
-  textAlign: 'center',
-  color: 'rgba(15,23,42,0.6)',
-  fontWeight: 600,
-};
-
-const footerBarStyle: React.CSSProperties = {
-  marginTop: 12,
-  display: 'flex',
-  flexWrap: 'wrap',
-  gap: 12,
-  alignItems: 'center',
-  padding: '12px 16px',
-  fontSize: 13,
-  borderTop: '1px solid rgba(0,0,0,0.06)',
-};
-
 const operationPalette = [
   { key: 'create', bg: 'rgba(16,185,129,0.12)', color: '#047857' },
   { key: 'update', bg: 'rgba(59,130,246,0.12)', color: '#1d4ed8' },
@@ -283,13 +116,13 @@ const columns: TableColumnDefinition<AuditRow>[] = [
     columnId: 'operation',
     compare: columnComparators.operation,
     renderHeaderCell: () => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <span style={headerCellStyle}>Operation</span>
+      <TableCellLayout className="cell-layout">
+        <span className="header-cell">Operation</span>
       </TableCellLayout>
     ),
     renderCell: (row) => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <div style={{ ...cellTopStyle, ...bodyTextStyle }}>{row.operation}</div>
+      <TableCellLayout className="cell-layout">
+        <div className="cell-top body-text">{row.operation}</div>
       </TableCellLayout>
     ),
   }),
@@ -297,13 +130,13 @@ const columns: TableColumnDefinition<AuditRow>[] = [
     columnId: 'createdOn',
     compare: columnComparators.createdOn,
     renderHeaderCell: () => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <span style={headerCellStyle}>Changed Date</span>
+      <TableCellLayout className="cell-layout">
+        <span className="header-cell">Changed Date</span>
       </TableCellLayout>
     ),
     renderCell: (row) => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <div style={{ ...cellTopStyle, ...bodyTextStyle }}>{row.createdOn}</div>
+      <TableCellLayout className="cell-layout">
+        <div className="cell-top body-text">{row.createdOn}</div>
       </TableCellLayout>
     ),
   }),
@@ -311,13 +144,13 @@ const columns: TableColumnDefinition<AuditRow>[] = [
     columnId: 'user',
     compare: columnComparators.user,
     renderHeaderCell: () => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <span style={headerCellStyle}>Changed By</span>
+      <TableCellLayout className="cell-layout">
+        <span className="header-cell">Changed By</span>
       </TableCellLayout>
     ),
     renderCell: (row) => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <div style={{ ...cellTopStyle, ...bodyTextStyle }}>{row.user}</div>
+      <TableCellLayout className="cell-layout">
+        <div className="cell-top body-text">{row.user}</div>
       </TableCellLayout>
     ),
   }),
@@ -325,15 +158,15 @@ const columns: TableColumnDefinition<AuditRow>[] = [
     columnId: 'fieldName',
     compare: columnComparators.fieldName,
     renderHeaderCell: () => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <span style={headerCellStyle}>Field</span>
+      <TableCellLayout className="cell-layout">
+        <span className="header-cell">Field</span>
       </TableCellLayout>
     ),
     renderCell: (row) => (
-      <TableCellLayout style={cellLayoutStyle}>
+      <TableCellLayout className="cell-layout">
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
           {(row.changes ?? []).map((c, i) => (
-            <div key={i} style={changeLineStyle} title={c.field}>
+            <div key={i} className="change-line" title={c.field}>
               {c.field}
             </div>
           ))}
@@ -345,12 +178,12 @@ const columns: TableColumnDefinition<AuditRow>[] = [
     columnId: 'oldValue',
     compare: columnComparators.oldValue,
     renderHeaderCell: () => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <span style={headerCellStyle}>Old Value</span>
+      <TableCellLayout className="cell-layout">
+        <span className="header-cell">Old Value</span>
       </TableCellLayout>
     ),
     renderCell: (row) => (
-      <TableCellLayout style={cellLayoutStyle}>
+      <TableCellLayout className="cell-layout">
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
           {(row.changes ?? []).map((c, i) => {
             const raw = c.oldValue;
@@ -358,7 +191,7 @@ const columns: TableColumnDefinition<AuditRow>[] = [
             const r = c.oldRef;
 
             return (
-              <div key={i} style={changeLineStyle} title={(raw ?? '').trim()}>
+              <div key={i} className="change-line" title={(raw ?? '').trim()}>
                 {r ? (
                   <Link
                     href="#"
@@ -383,12 +216,12 @@ const columns: TableColumnDefinition<AuditRow>[] = [
     columnId: 'newValue',
     compare: columnComparators.newValue,
     renderHeaderCell: () => (
-      <TableCellLayout style={cellLayoutStyle}>
-        <span style={headerCellStyle}>New Value</span>
+      <TableCellLayout className="cell-layout">
+        <span className="header-cell">New Value</span>
       </TableCellLayout>
     ),
     renderCell: (row) => (
-      <TableCellLayout style={cellLayoutStyle}>
+      <TableCellLayout className="cell-layout">
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch' }}>
           {(row.changes ?? []).map((c, i) => {
             const raw = c.newValue;
@@ -396,7 +229,7 @@ const columns: TableColumnDefinition<AuditRow>[] = [
             const r = c.newRef;
 
             return (
-              <div key={i} style={changeLineStyle} title={(raw ?? '').trim()}>
+              <div key={i} className="change-line" title={(raw ?? '').trim()}>
                 {r ? (
                   <Link
                     href="#"
@@ -552,68 +385,14 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
     return `${shown} +${remaining}`;
   }, [selectedFields, fieldOptions]);
 
-  const filterBarResponsiveStyle = useMemo<React.CSSProperties>(
-    () => ({
-      ...filterBarStyle,
-      position: isCompact ? 'static' : 'sticky',
-    }),
-    [isCompact],
-  );
-
-  const filterRowResponsiveStyle = useMemo<React.CSSProperties>(
-    () => ({
-      ...filterRowStyle,
-      flexDirection: isCompact ? 'column' : 'row',
-      alignItems: isCompact ? 'stretch' : 'flex-end',
-    }),
-    [isCompact],
-  );
-
-  const filterSectionResponsiveStyle = useMemo<React.CSSProperties>(
-    () => ({
-      ...filterSectionStyle,
-      minWidth: isCompact ? '100%' : 320,
-      flex: isCompact ? '1 1 100%' : '1 1 320px',
-    }),
-    [isCompact],
-  );
-
-  const dateSectionResponsiveStyle = useMemo<React.CSSProperties>(
-    () => ({
-      ...dateSectionStyle,
-      minWidth: isCompact ? '100%' : 200,
-      flex: isCompact ? '1 1 100%' : '0 0 200px',
-    }),
-    [isCompact],
-  );
-
-  const resetSectionStyle = useMemo<React.CSSProperties>(
-    () => ({
-      ...resetSectionBaseStyle,
-      width: isCompact ? '100%' : 'auto',
-      justifyContent: isCompact ? 'flex-start' : 'flex-end',
-    }),
-    [isCompact],
-  );
-
-  const refreshSectionStyle = useMemo<React.CSSProperties>(
-    () => ({
-      ...refreshSectionBaseStyle,
-      width: isCompact ? '100%' : 'auto',
-      justifyContent: isCompact ? 'flex-start' : 'flex-end',
-      marginLeft: isCompact ? 0 : 'auto',
-    }),
-    [isCompact],
-  );
-
-  const refreshButtonResponsiveStyle = useMemo<React.CSSProperties>(
-    () => ({
-      ...refreshButtonStyle,
-      width: isCompact ? '100%' : refreshButtonStyle.width,
-      borderRadius: isCompact ? 12 : '50%',
-    }),
-    [isCompact],
-  );
+  //responsive style - mobile/desktop views
+  const filterBarClass = isCompact ? 'filter-bar filter-bar-mobile' : 'filter-bar';
+  const filterRowClass = isCompact ? 'filter-row filter-row-mobile' : 'filter-row';
+  const filterSectionClass = isCompact ? 'filter-section filter-section-mobile' : 'filter-section';
+  const dateSectionClass = isCompact ? 'date-section date-section-mobile' : 'date-section';
+  const resetSectionClass = isCompact ? 'reset-section-base reset-section-mobile' : 'reset-section-base';
+  const refreshSectionClass = isCompact ? 'refresh-section-base refresh-section-mobile' : 'refresh-section-base';
+  const refreshButtonClass = isCompact ? 'refresh-button refresh-button-mobile' : 'refresh-button';
 
   const renderValue = useCallback((value?: string, ref?: EntityRef) => {
     const content = formatAuditValue(value);
@@ -657,11 +436,11 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
   }, [filteredRows, sortState, enableSort]);
 
   const mobileCards = (
-    <div style={cardsContainerStyle}>
+    <div className="cards-container">
       {sortedRows.map((row) => {
         const accent = getOperationAccent(row.operation);
         return (
-          <div key={row.auditId} style={mobileCardStyle}>
+          <div key={row.auditId} className="mobile-card">
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
               <span style={{ padding: '2px 10px', borderRadius: 999, fontSize: 12, fontWeight: 700, background: accent.bg, color: accent.color }}>
                 {row.operation || 'Unknown'}
@@ -677,7 +456,7 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {(row.changes ?? []).map((change, index) => (
-                <div key={index} style={mobileChangeStyle}>
+                <div key={index} className="mobile-change">
                   <div style={{ fontSize: 12, fontWeight: 700 }}>{change.field}</div>
                   <div style={{ fontSize: 12, display: 'flex', flexDirection: 'column', gap: 2 }}>
                     <span style={{ color: '#b91c1c' }}>{renderValue(change.oldValue, change.oldRef)}</span>
@@ -690,14 +469,14 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
         );
       })}
 
-      {sortedRows.length === 0 && !isLoading ? <div style={emptyStateStyle}>No audit entries match the current filters.</div> : null}
+      {sortedRows.length === 0 && !isLoading ? <div className="empty-state">No audit entries match the current filters.</div> : null}
     </div>
   );
 
   const desktopGrid = (
-    <div style={gridWrapperStyle}>
+    <div className="grid-wrapper">
       {sortedRows.length === 0 && !isLoading ? (
-        <div style={emptyStateStyle}>No audit entries match the current filters.</div>
+        <div className="empty-state">No audit entries match the current filters.</div>
       ) : (
         <DataGrid
           style={{ width: '100%' }}
@@ -717,9 +496,9 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
             </DataGridRow>
           </DataGridHeader>
 
-          <DataGridBody>
+          <DataGridBody className="data-grid-body">
             {({ item, rowId }: { item: AuditRow; rowId: TableRowId }) => (
-              <DataGridRow key={rowId}>
+              <DataGridRow key={rowId} className="data-grid-body">
                 {({ renderCell }: { renderCell: (row: AuditRow) => React.ReactNode }) => <DataGridCell>{renderCell(item)}</DataGridCell>}
               </DataGridRow>
             )}
@@ -743,24 +522,26 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
         }}
       >
         {error ? (
-          <div style={{ padding: 8, ...bodyTextStyle }}>
+          <div className="body-text" style={{ padding: 8 }}>
             <strong>Error:</strong> {error}
           </div>
         ) : null}
 
         {/* FILTER BAR */}
-        <div style={filterBarResponsiveStyle}>
-          <div style={filterRowResponsiveStyle}>
-            <div style={filterSectionResponsiveStyle}>
-              <Label style={filterLabelStyle} htmlFor="fieldFilter">
+        <div className={filterBarClass}>
+          <div className={filterRowClass}>
+            <div className={filterSectionClass}>
+              <Label className="filter-label" htmlFor="fieldFilter">
                 Fields
               </Label>
 
               <Popover positioning="below-start">
                 <PopoverTrigger disableButtonEnhancement>
-                  <Button id="fieldFilter" appearance="outline" style={filterButtonStyle}>
-                    <span style={{ ...bodyTextStyle, textAlign: 'left', flex: 1 }}>{selectedFieldsDisplay}</span>
-                    <span style={{ ...bodyTextStyle, opacity: 0.75 }}>
+                  <Button id="fieldFilter" appearance="outline" className="filter-button">
+                    <span className="body-text" style={{ textAlign: 'left', flex: 1 }}>
+                      {selectedFieldsDisplay}
+                    </span>
+                    <span className="body-text" style={{ opacity: 0.75 }}>
                       {selectedFields.size === 0 ? `${fieldOptions.length}` : `${selectedFields.size}/${fieldOptions.length}`}
                     </span>
                   </Button>
@@ -776,7 +557,9 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10 }}>
-                    <div style={{ fontWeight: 700, ...bodyTextStyle }}>Select fields</div>
+                    <div className="body-text" style={{ fontWeight: 700 }}>
+                      Select fields
+                    </div>
                     <div style={{ fontSize: 12, opacity: 0.7 }}>{selectedFields.size === 0 ? 'No filter' : `${selectedFields.size} selected`}</div>
                   </div>
 
@@ -784,7 +567,9 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
 
                   <div style={{ marginTop: 10, maxHeight: 260, overflow: 'auto', paddingRight: 6 }}>
                     {filteredFieldOptions.length === 0 ? (
-                      <div style={{ padding: 8, opacity: 0.7, ...bodyTextStyle }}>No matches</div>
+                      <div className="body-text" style={{ padding: 8, opacity: 0.7 }}>
+                        No matches
+                      </div>
                     ) : (
                       filteredFieldOptions.map((f) => {
                         const checked = selectedFields.has(f);
@@ -813,7 +598,8 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
                             <Checkbox checked={checked} />
                             <div
                               title={f}
-                              style={{ ...bodyTextStyle, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', width: '100%' }}
+                              className="body-text"
+                              style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', width: '100%' }}
                             >
                               {f}
                             </div>
@@ -841,43 +627,45 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
                 </PopoverSurface>
               </Popover>
 
-              <div style={filterHelperTextStyle}>
+              <div className="filter-helper-text">
                 {selectedFields.size === 0 ? 'Showing all fields.' : `${selectedFields.size} field${selectedFields.size === 1 ? '' : 's'} focused.`}
               </div>
             </div>
           </div>
 
-          <div style={filterRowResponsiveStyle}>
-            <div style={dateSectionResponsiveStyle}>
-              <Label style={filterLabelStyle}>From</Label>
-              <Input type="date" value={fromDate} onChange={(_, data) => setFromDate(String(data.value ?? ''))} style={dateInputStyle} />
-            </div>
+          <div className={filterRowClass}>
+            <div className="date-with-actions">
+              <div className={dateSectionClass}>
+                <Label className="filter-label">From</Label>
+                <Input type="date" value={fromDate} onChange={(_, data) => setFromDate(String(data.value ?? ''))} className="date-input" />
+              </div>
 
-            <div style={dateSectionResponsiveStyle}>
-              <Label style={filterLabelStyle}>To</Label>
-              <Input type="date" value={toDate} onChange={(_, data) => setToDate(String(data.value ?? ''))} style={dateInputStyle} />
-            </div>
+              <div className={dateSectionClass}>
+                <Label className="filter-label">To</Label>
+                <Input type="date" value={toDate} onChange={(_, data) => setToDate(String(data.value ?? ''))} className="date-input" />
+              </div>
 
-            <div style={resetSectionStyle}>
-              <Button
-                appearance="secondary"
-                style={{ minWidth: isCompact ? '100%' : 140 }}
-                onClick={() => {
-                  setSelectedFields(new Set());
-                  setFieldQuery('');
-                  setFromDate('');
-                  setToDate('');
-                }}
-              >
-                Reset filters
-              </Button>
+              <div className={resetSectionClass}>
+                <Button
+                  appearance="secondary"
+                  style={{ minWidth: isCompact ? '100%' : 140 }}
+                  onClick={() => {
+                    setSelectedFields(new Set());
+                    setFieldQuery('');
+                    setFromDate('');
+                    setToDate('');
+                  }}
+                >
+                  Reset filters
+                </Button>
+              </div>
             </div>
 
             {canRefresh ? (
-              <div style={refreshSectionStyle}>
+              <div className={refreshSectionClass}>
                 <Button
                   appearance="subtle"
-                  style={refreshButtonResponsiveStyle}
+                  className={refreshButtonClass}
                   onClick={handleRefresh}
                   disabled={isLoading}
                   icon={<ArrowClockwise24Regular />}
@@ -892,7 +680,7 @@ export const AuditHistory: React.FC<IAuditHistory> = (props) => {
         {/* GRID and CARD VIEW */}
         {isCompact ? mobileCards : desktopGrid}
 
-        <div style={footerBarStyle}>
+        <div className="footer-bar">
           {isLoading ? (
             <Spinner size="extra-small" />
           ) : (
