@@ -43,9 +43,9 @@ The **DMSN Audit Timeline** PCF control renders Dataverse audit logs as an inter
 
 ![4](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/4.png)
 
-![8](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/5.png)
+![8](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/8.png)
 
-![9](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/6.png)
+![9](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/9.png)
 
 ## Configuration Inputs
 
