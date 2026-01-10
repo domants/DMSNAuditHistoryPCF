@@ -1,6 +1,7 @@
 # Audit History Control PCF
 
 ![1](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/1.png)
+![gif](https://github.com/domants/DMSNAuditHistoryPCF/blob/main/assets/DMSN%20Audit%20Timeline.gif)
 
 ## Overview
 
